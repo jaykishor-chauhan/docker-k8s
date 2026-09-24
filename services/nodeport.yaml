@@ -1,0 +1,16 @@
+# Creating service so the application is accessiable to everywhere
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    env: demo
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30007
+  selector:
+    env: demo

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: en-svc
+  labels:
+    env: demo
+spec:
+  type: ExternalName
+  externalName: my.database.example.com  #database connection url
+  

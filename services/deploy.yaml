@@ -1,0 +1,25 @@
+# kubectl explain rc -- this will show all the info like kind and version
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    env: demo
+spec:
+  template:
+    metadata:
+      name: my-first-pod
+      labels:
+        env: demo
+        type: frontend
+    spec:
+      containers:
+      - name: my-first-pod-containers
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+  replicas: 3
+  selector: #used only for ReplicaSet
+    matchLabels:
+      env: demo
